@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, BookOpen, Users, Brain } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { OfflineToggle } from "@/components/ui/OfflineToggle";
 
 interface HeaderProps {
   onLoginClick: () => void;
@@ -46,6 +47,7 @@ export const Header = ({ onLoginClick }: HeaderProps) => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
+            <OfflineToggle />
             <Button variant="ghost" onClick={onLoginClick}>
               Sign In
             </Button>
@@ -87,6 +89,7 @@ export const Header = ({ onLoginClick }: HeaderProps) => {
               </a>
             ))}
             <div className="flex flex-col space-y-2 pt-4">
+              <OfflineToggle />
               <Button variant="ghost" onClick={onLoginClick}>
                 Sign In
               </Button>

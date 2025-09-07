@@ -16,46 +16,59 @@ import {
   Monitor
 } from "lucide-react";
 import heroImage from "@/assets/hero-education.jpg";
+import { STEMGames } from "@/components/features/STEMGames";
+import { AITutor } from "@/components/features/AITutor";
+import { LearningVideos } from "@/components/features/LearningVideos";
+import { PeerLearning } from "@/components/features/PeerLearning";
+import { TopperNotes } from "@/components/features/TopperNotes";
+import { Achievements } from "@/components/features/Achievements";
 
 const Index = () => {
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [currentView, setCurrentView] = useState("home");
 
   const features = [
     {
       icon: Gamepad2,
       title: "Interactive STEM Games",
       description: "Engaging mini-games that make learning math, science, and technology fun",
-      color: "text-primary"
+      color: "text-primary",
+      action: () => setCurrentView("games")
     },
     {
       icon: Video,
       title: "Animated Learning Videos",
       description: "High-quality educational content with multilingual support",
-      color: "text-secondary"
+      color: "text-secondary",
+      action: () => setCurrentView("videos")
     },
     {
       icon: Brain,
       title: "AI Learning Assistant",
       description: "24/7 AI tutor to help students with doubts and explanations",
-      color: "text-accent"
+      color: "text-accent",
+      action: () => setCurrentView("ai-tutor")
     },
     {
       icon: Users,
       title: "Peer Learning Network",
       description: "Students helping students with collaborative problem-solving",
-      color: "text-primary"
+      color: "text-primary",
+      action: () => setCurrentView("peer-learning")
     },
     {
       icon: FileText,
       title: "Topper Notes Library",
       description: "Access to high-quality study materials from top performers",
-      color: "text-secondary"
+      color: "text-secondary",
+      action: () => setCurrentView("notes")
     },
     {
       icon: Trophy,
       title: "Achievement System",
       description: "Gamified progress tracking with rewards and badges",
-      color: "text-accent"
+      color: "text-accent",
+      action: () => setCurrentView("achievements")
     }
   ];
 
@@ -76,6 +89,14 @@ const Index = () => {
       description: "Designed to work smoothly on budget smartphones and tablets"
     }
   ];
+
+  // Render different views based on current selection
+  if (currentView === "games") return <STEMGames />;
+  if (currentView === "ai-tutor") return <AITutor />;
+  if (currentView === "videos") return <LearningVideos />;
+  if (currentView === "peer-learning") return <PeerLearning />;
+  if (currentView === "notes") return <TopperNotes />;
+  if (currentView === "achievements") return <Achievements />;
 
   return (
     <div className="min-h-screen bg-background">
@@ -136,7 +157,11 @@ const Index = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <Card key={index} className="group hover:shadow-medium transition-all duration-300 hover:-translate-y-2">
+              <Card 
+                key={index} 
+                className="group hover:shadow-medium transition-all duration-300 hover:-translate-y-2 cursor-pointer"
+                onClick={feature.action}
+              >
                 <CardHeader>
                   <div className={`w-12 h-12 rounded-lg bg-gradient-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                     <feature.icon className="w-6 h-6 text-white" />
@@ -144,7 +169,10 @@ const Index = () => {
                   <CardTitle className="text-xl">{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{feature.description}</p>
+                  <p className="text-muted-foreground mb-4">{feature.description}</p>
+                  <Button variant="outline" className="w-full">
+                    Explore Now
+                  </Button>
                 </CardContent>
               </Card>
             ))}
