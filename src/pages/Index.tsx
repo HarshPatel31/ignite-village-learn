@@ -91,12 +91,12 @@ const Index = () => {
   ];
 
   // Render different views based on current selection
-  if (currentView === "games") return <STEMGames />;
-  if (currentView === "ai-tutor") return <AITutor />;
-  if (currentView === "videos") return <LearningVideos />;
-  if (currentView === "peer-learning") return <PeerLearning />;
-  if (currentView === "notes") return <TopperNotes />;
-  if (currentView === "achievements") return <Achievements />;
+  if (currentView === "games") return <STEMGames onBack={() => setCurrentView("home")} />;
+  if (currentView === "ai-tutor") return <AITutor onBack={() => setCurrentView("home")} />;
+  if (currentView === "videos") return <LearningVideos onBack={() => setCurrentView("home")} />;
+  if (currentView === "peer-learning") return <PeerLearning onBack={() => setCurrentView("home")} />;
+  if (currentView === "notes") return <TopperNotes onBack={() => setCurrentView("home")} />;
+  if (currentView === "achievements") return <Achievements onBack={() => setCurrentView("home")} />;
 
   return (
     <div className="min-h-screen bg-background">

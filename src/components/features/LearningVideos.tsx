@@ -40,7 +40,7 @@ const videos = [
 
 const subjects = ["All", "Mathematics", "Physics", "Chemistry", "Biology"];
 
-export const LearningVideos = () => {
+export const LearningVideos = ({ onBack }: { onBack?: () => void }) => {
   const navigate = useNavigate();
   const [selectedSubject, setSelectedSubject] = useState("All");
   const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
@@ -61,7 +61,7 @@ export const LearningVideos = () => {
         <div className="mb-6">
           <Button 
             variant="outline" 
-            onClick={() => navigate('/')}
+            onClick={onBack || (() => navigate('/'))}
             className="mb-4 hover-scale"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />

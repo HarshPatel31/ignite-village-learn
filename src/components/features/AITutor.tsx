@@ -12,7 +12,7 @@ interface Message {
   timestamp: Date;
 }
 
-export const AITutor = () => {
+export const AITutor = ({ onBack }: { onBack?: () => void }) => {
   const navigate = useNavigate();
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -58,7 +58,7 @@ export const AITutor = () => {
         <div className="mb-6">
           <Button 
             variant="outline" 
-            onClick={() => navigate('/')}
+            onClick={onBack || (() => navigate('/'))}
             className="mb-4 hover-scale"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />

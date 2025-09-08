@@ -78,7 +78,7 @@ const rewards: Reward[] = [
   }
 ];
 
-export const Achievements = () => {
+export const Achievements = ({ onBack }: { onBack?: () => void }) => {
   const navigate = useNavigate();
   const [studyTime, setStudyTime] = useState(0); // minutes studied today
   const [streak, setStreak] = useState(15); // current streak
@@ -133,7 +133,7 @@ export const Achievements = () => {
         <div className="mb-6">
           <Button 
             variant="outline" 
-            onClick={() => navigate('/')}
+            onClick={onBack || (() => navigate('/'))}
             className="mb-4 hover-scale"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />

@@ -34,7 +34,7 @@ const games = [
   }
 ];
 
-export const STEMGames = () => {
+export const STEMGames = ({ onBack }: { onBack?: () => void }) => {
   const [selectedGame, setSelectedGame] = useState<number | null>(null);
   const navigate = useNavigate();
 
@@ -50,7 +50,7 @@ export const STEMGames = () => {
         <div className="mb-6">
           <Button 
             variant="outline" 
-            onClick={() => navigate('/')}
+            onClick={onBack || (() => navigate('/'))}
             className="mb-4 hover-scale"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
