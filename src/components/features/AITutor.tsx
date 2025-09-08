@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { Brain, Send, Bot } from "lucide-react";
+import { Brain, Send, Bot, ArrowLeft } from "lucide-react";
 
 interface Message {
   id: number;
@@ -53,6 +53,17 @@ export const AITutor = () => {
   return (
     <div className="min-h-screen bg-background pt-20 pb-12">
       <div className="container mx-auto px-4 max-w-4xl">
+        <div className="mb-6">
+          <Button 
+            variant="outline" 
+            onClick={() => window.location.href = '/'}
+            className="mb-4"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Button>
+        </div>
+        
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
             <Brain className="w-10 h-10 text-accent" />

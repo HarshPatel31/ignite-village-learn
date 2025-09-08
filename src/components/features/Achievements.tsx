@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { Trophy, Flame, Calendar, Award, Gift, Clock } from "lucide-react";
+import { Trophy, Flame, Calendar, Award, Gift, Clock, ArrowLeft } from "lucide-react";
 
 interface Achievement {
   id: number;
@@ -128,6 +128,17 @@ export const Achievements = () => {
   return (
     <div className="min-h-screen bg-background pt-20 pb-12">
       <div className="container mx-auto px-4">
+        <div className="mb-6">
+          <Button 
+            variant="outline" 
+            onClick={() => window.location.href = '/'}
+            className="mb-4"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Button>
+        </div>
+        
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
             <Trophy className="w-10 h-10 text-accent" />

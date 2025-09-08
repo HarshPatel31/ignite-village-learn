@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Users, Plus, MessageCircle, ThumbsUp, Video } from "lucide-react";
+import { Users, Plus, MessageCircle, ThumbsUp, Video, ArrowLeft } from "lucide-react";
 
 interface Question {
   id: number;
@@ -60,6 +60,17 @@ export const PeerLearning = () => {
   return (
     <div className="min-h-screen bg-background pt-20 pb-12">
       <div className="container mx-auto px-4 max-w-4xl">
+        <div className="mb-6">
+          <Button 
+            variant="outline" 
+            onClick={() => window.location.href = '/'}
+            className="mb-4"
+          >
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            Back to Home
+          </Button>
+        </div>
+        
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4 flex items-center justify-center gap-3">
             <Users className="w-10 h-10 text-primary" />
