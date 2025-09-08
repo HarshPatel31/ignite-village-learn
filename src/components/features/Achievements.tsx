@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -78,6 +79,7 @@ const rewards: Reward[] = [
 ];
 
 export const Achievements = () => {
+  const navigate = useNavigate();
   const [studyTime, setStudyTime] = useState(0); // minutes studied today
   const [streak, setStreak] = useState(15); // current streak
   const [streakPoints, setStreakPoints] = useState(45); // 3 points per day * 15 days
@@ -131,8 +133,8 @@ export const Achievements = () => {
         <div className="mb-6">
           <Button 
             variant="outline" 
-            onClick={() => window.location.href = '/'}
-            className="mb-4"
+            onClick={() => navigate('/')}
+            className="mb-4 hover-scale"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home

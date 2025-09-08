@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -43,6 +44,7 @@ const questions: Question[] = [
 ];
 
 export const PeerLearning = () => {
+  const navigate = useNavigate();
   const [showNewQuestion, setShowNewQuestion] = useState(false);
   const [newQuestion, setNewQuestion] = useState({
     title: "",
@@ -63,8 +65,8 @@ export const PeerLearning = () => {
         <div className="mb-6">
           <Button 
             variant="outline" 
-            onClick={() => window.location.href = '/'}
-            className="mb-4"
+            onClick={() => navigate('/')}
+            className="mb-4 hover-scale"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home

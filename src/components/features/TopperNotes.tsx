@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -53,6 +54,7 @@ const notes: Note[] = [
 ];
 
 export const TopperNotes = () => {
+  const navigate = useNavigate();
   const [showUpload, setShowUpload] = useState(false);
   const [selectedSubject, setSelectedSubject] = useState("All");
 
@@ -78,8 +80,8 @@ export const TopperNotes = () => {
         <div className="mb-6">
           <Button 
             variant="outline" 
-            onClick={() => window.location.href = '/'}
-            className="mb-4"
+            onClick={() => navigate('/')}
+            className="mb-4 hover-scale"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
